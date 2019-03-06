@@ -11,8 +11,14 @@ public class Director {
     private String name;
     private String genre;
 
-    @OneToMany(mappedBy = "director", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    public Set<Movie> movies;
+    @OneToMany(mappedBy = "director", cascade = CascadeType.ALL, fetch = FetchType.EAGER) // we attach this annot to a set of movies
+    public Set<Movie> movies; // now each director comes with their own collection of movies
+
+    /* We use Set b/c 1) it allows each element to exist only once. 2) order doesn't matter in sets
+    *
+    * mappedBy tells the set of movies where to save the data. AKA the director class is the keeper of the movie set.
+    * mappedBy="director" tells the persistence provider that the join column should be in the Director table
+    **/
 
     public Director() {
     }

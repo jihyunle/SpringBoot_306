@@ -14,6 +14,7 @@ public class Movie {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "director_id")
     private Director director;
+    /*@JoinColumn include this annotation in the class that is the owner of the relationship or the keeper of data*/
 
     public Movie() {
     }
