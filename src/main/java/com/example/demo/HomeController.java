@@ -14,10 +14,12 @@ public class HomeController {
     @Autowired
     DirectorRepository directorRepository;
 
+    Director director = new Director();
+
     @RequestMapping("/")
     public String index(Model model){
         // create a director
-        Director director = new Director();
+//        Director director = new Director();
         director.setName("Stephen Bullock");
         director.setGenre("Sci Fi");
 
@@ -44,7 +46,7 @@ public class HomeController {
         // save the director to the database
         directorRepository.save(director);
 
-        // grab all the directors from the db and sent them to the template
+        // grab all the directors from the db and send them to the template
         model.addAttribute("directors", directorRepository.findAll());
 
         return "index";
